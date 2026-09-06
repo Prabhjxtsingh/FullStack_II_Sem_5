@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import {
+import { 
   MessageCircle,
   BriefcaseBusiness,
   Globe2,
   Camera,
-  Image as ImageIcon,
-  X,
-  AlertCircle,
-  CheckCircle2,
-  Send
+  Image as ImageIcon, 
+  X, 
+  AlertCircle, 
+  CheckCircle2, 
+  Send 
 } from 'lucide-react';
 
 const PLATFORMS = {
@@ -54,6 +54,7 @@ export default function App() {
   const [validations, setValidations] = useState({});
   const [isReady, setIsReady] = useState(false);
 
+  // Helper to extract hashtags
   const getHashtagCount = (text) => {
     const matches = text.match(/#[a-zA-Z0-9_]+/g);
     return matches ? matches.length : 0;
@@ -62,16 +63,16 @@ export default function App() {
   useEffect(() => {
     const newValidations = {};
     let allValid = true;
-    const hasSelected = selectedPlatforms.length > 0;
+    let hasSelected = selectedPlatforms.length > 0;
 
     selectedPlatforms.forEach(platformId => {
       const platform = PLATFORMS[platformId];
       const charCount = content.length;
       const hashtagCount = getHashtagCount(content);
-
+      
       const charExceeded = charCount > platform.charLimit;
       const hashtagExceeded = platform.maxHashtags && hashtagCount > platform.maxHashtags;
-
+      
       const isWarning = charCount > platform.charLimit * 0.8 && !charExceeded;
       const isValid = !charExceeded && !hashtagExceeded;
 
@@ -94,7 +95,7 @@ export default function App() {
   }, [content, selectedPlatforms]);
 
   const togglePlatform = (platformId) => {
-    setSelectedPlatforms(prev =>
+    setSelectedPlatforms(prev => 
       prev.includes(platformId)
         ? prev.filter(id => id !== platformId)
         : [...prev, platformId]
@@ -120,10 +121,12 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-50 p-4 md:p-8 font-sans text-slate-800 flex justify-center">
       <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        {/* Main Composer Area */}
         <div className="lg:col-span-2 space-y-6">
           <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
             <h1 className="text-2xl font-bold mb-6 text-slate-900">Create Post</h1>
-
+            
             <div className="mb-6">
               <label className="block text-sm font-medium text-slate-700 mb-3">Select Platforms</label>
               <div className="flex flex-wrap gap-3">
@@ -135,8 +138,8 @@ export default function App() {
                       key={platform.id}
                       onClick={() => togglePlatform(platform.id)}
                       className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all duration-200
-                        ${isSelected
-                          ? `${platform.color} shadow-md ring-2 ring-offset-2 ${platform.activeColor}`
+                        ${isSelected 
+                          ? `${platform.color} shadow-md ring-2 ring-offset-2 ${platform.activeColor}` 
                           : 'bg-white text-slate-600 border-slate-300 hover:bg-slate-50'
                         }`}
                     >
@@ -148,6 +151,7 @@ export default function App() {
               </div>
             </div>
 
+            {}
             <div className="mb-4 relative">
               <textarea
                 value={content}
@@ -165,7 +169,7 @@ export default function App() {
                 {mediaFiles.map((file, idx) => (
                   <div key={idx} className="relative w-24 h-24 bg-indigo-100 rounded-lg flex items-center justify-center border border-indigo-200">
                     <ImageIcon className="text-indigo-400" size={24} />
-                    <button
+                    <button 
                       onClick={() => removeMedia(idx)}
                       className="absolute -top-2 -right-2 bg-white rounded-full p-1 shadow-sm border border-slate-200 hover:bg-red-50 text-red-500"
                     >
@@ -177,7 +181,7 @@ export default function App() {
             )}
 
             <div className="flex items-center justify-between border-t border-slate-100 pt-4 mt-4">
-              <button
+              <button 
                 onClick={handleMediaSimulate}
                 disabled={mediaFiles.length >= 4}
                 className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-indigo-600 bg-indigo-50 hover:bg-indigo-100 rounded-lg transition-colors disabled:opacity-50"
@@ -198,9 +202,10 @@ export default function App() {
           </div>
         </div>
 
+        {}
         <div className="space-y-4">
           <h2 className="text-lg font-bold text-slate-800 px-2">Platform Constraints</h2>
-
+          
           {selectedPlatforms.length === 0 ? (
             <div className="bg-white rounded-xl border border-dashed border-slate-300 p-8 text-center text-slate-500">
               Select at least one platform to view requirements.
@@ -216,7 +221,7 @@ export default function App() {
               let textColor = 'text-emerald-700';
               let bgColor = 'bg-emerald-50';
               let Icon = CheckCircle2;
-
+              
               if (validation.charExceeded || validation.hashtagExceeded) {
                 statusColor = 'bg-red-500';
                 textColor = 'text-red-700';
@@ -228,10 +233,10 @@ export default function App() {
                 bgColor = 'bg-amber-50';
                 Icon = AlertCircle;
               } else if (validation.charCount === 0) {
-                statusColor = 'bg-slate-300';
-                textColor = 'text-slate-500';
-                bgColor = 'bg-white';
-                Icon = AlertCircle;
+                 statusColor = 'bg-slate-300';
+                 textColor = 'text-slate-500';
+                 bgColor = 'bg-white';
+                 Icon = AlertCircle;
               }
 
               return (
@@ -245,6 +250,7 @@ export default function App() {
                   </div>
 
                   <div className="space-y-3">
+                    {/* Character Progress */}
                     <div>
                       <div className="flex justify-between text-xs font-medium mb-1 text-slate-600">
                         <span>Characters</span>
@@ -253,7 +259,7 @@ export default function App() {
                         </span>
                       </div>
                       <div className="w-full bg-slate-200 rounded-full h-2">
-                        <div
+                        <div 
                           className={`h-2 rounded-full transition-all duration-300 ${statusColor}`}
                           style={{ width: `${percentUsed}%` }}
                         ></div>
@@ -263,6 +269,7 @@ export default function App() {
                       )}
                     </div>
 
+                    {/* Hashtag Progress (if applicable) */}
                     {platform.maxHashtags && (
                       <div className="pt-2 border-t border-black/5">
                         <div className="flex justify-between text-xs font-medium mb-1 text-slate-600">
