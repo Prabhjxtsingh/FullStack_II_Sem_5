@@ -37,6 +37,13 @@ jobs:
         working-directory: ./Post
         run: npm run build
 
+      - name: Publish portfolio homepage and experiment files
+        run: |
+          cp ./index.html ./Post/dist/index.html
+          cp ./FSD_Exp_*.jsx ./Post/dist/
+          cp ./FSD_Exp_*.tsx ./Post/dist/
+          cp ./FSD_Exp_*.zip ./Post/dist/
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
