@@ -42,16 +42,16 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <script>
                 const files = [
-                    ['FSD_Exp_1.jsx', 'FSD_Exp_1', 'JSX Source File', 'file-code-2', 'amber', false],
-                    ['FSD_Exp_1.2.jsx', 'FSD_Exp_1.2', 'JSX Source File', 'file-code-2', 'amber', false],
-                    ['FSD_Exp_2.zip', 'FSD_Exp_2', 'Compressed (.zip)', 'file-archive', 'red', true],
-                    ['FSD_Exp_2.2.zip', 'FSD_Exp_2.2', 'Compressed (.zip)', 'file-archive', 'red', true],
-                    ['FSD_Exp_3.tsx', 'FSD_Exp_3', 'TSX File (React)', 'file-json', 'blue', false],
-                    ['FSD_Exp_3.2.tsx', 'FSD_Exp_3.2', 'TSX File (React)', 'file-json', 'blue', false],
-                    ['FSD_Exp_4.tsx', 'FSD_Exp_4', 'TSX File (React)', 'file-json', 'blue', false],
-                    ['FSD_Exp_4.2.tsx', 'FSD_Exp_4.2', 'TSX File (React)', 'file-json', 'blue', false]
+                    ['FSD_Exp_1.jsx', 'FSD_Exp_1', 'JSX Source File', 'file-code-2', 'amber'],
+                    ['FSD_Exp_1.2.jsx', 'FSD_Exp_1.2', 'JSX Source File', 'file-code-2', 'amber'],
+                    ['FSD_Exp_2.zip', 'FSD_Exp_2', 'Compressed (.zip)', 'file-archive', 'red'],
+                    ['FSD_Exp_2.2.zip', 'FSD_Exp_2.2', 'Compressed (.zip)', 'file-archive', 'red'],
+                    ['FSD_Exp_3.tsx', 'FSD_Exp_3', 'TSX File (React)', 'file-json', 'blue'],
+                    ['FSD_Exp_3.2.tsx', 'FSD_Exp_3.2', 'TSX File (React)', 'file-json', 'blue'],
+                    ['FSD_Exp_4.tsx', 'FSD_Exp_4', 'TSX File (React)', 'file-json', 'blue'],
+                    ['FSD_Exp_4.2.tsx', 'FSD_Exp_4.2', 'TSX File (React)', 'file-json', 'blue']
                 ];
-                document.write(files.map(([path, name, type, icon, color, download]) => `
+                document.write(files.map(([path, name, type, icon, color]) => `
                     <div class="bg-white rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow overflow-hidden group">
                         <div class="p-5 flex items-start gap-4">
                             <div class="bg-${color}-100 text-${color}-600 p-3 rounded-xl group-hover:scale-110 transition-transform"><i data-lucide="${icon}" class="h-6 w-6"></i></div>
