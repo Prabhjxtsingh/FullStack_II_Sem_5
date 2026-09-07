@@ -59,7 +59,7 @@
                         </div>
                         <div class="bg-slate-50 px-5 py-3 border-t border-slate-100 flex justify-between items-center">
                             <span class="text-xs text-slate-400">${path}</span>
-                            <a href="./${path}"${download ? ' download' : ''} class="text-indigo-600 hover:text-indigo-800 text-sm font-medium flex items-center gap-1 transition-colors">${download ? 'Download' : 'View Code'} <i data-lucide="${download ? 'download' : 'chevron-right'}" class="h-4 w-4"></i></a>
+                            <a href="https://github.com/Prabhjxtsingh/FullStack_II_Sem_5/blob/main/${path}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 text-sm font-medium flex items-center gap-1 transition-colors">Open on GitHub <i data-lucide="external-link" class="h-4 w-4"></i></a>
                         </div>
                     </div>
                 `).join(''));
