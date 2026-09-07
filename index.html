@@ -1,17 +1,76 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Social Studio — Multi-Platform Post Composer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="./assets/index-CR09XFDs.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-Co4QYPOW.css">
-  </head>
-  <body class="bg-slate-50 text-slate-900 font-sans antialiased">
-    <div id="root"></div>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FSD Experiments - Prabhjot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen flex flex-col">
+    <header class="bg-indigo-600 text-white shadow-md py-6 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <h1 class="text-3xl font-bold tracking-tight">Full Stack Development Lab</h1>
+                <p class="text-indigo-200 mt-1">Experiment Index &amp; Code Repository</p>
+            </div>
+            <div class="bg-indigo-700/50 border border-indigo-400/30 rounded-xl px-5 py-3 flex items-center gap-4 shadow-inner">
+                <div class="bg-indigo-500 rounded-full p-2"><i data-lucide="user" class="h-6 w-6 text-white"></i></div>
+                <div>
+                    <p class="text-sm text-indigo-200 font-medium uppercase tracking-wider">Student Profile</p>
+                    <p class="text-lg font-bold">Prabhjot</p>
+                    <p class="text-sm font-mono text-indigo-100 bg-indigo-800/50 px-2 py-0.5 rounded mt-1 inline-block">UID: 24BAI70033</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10">
+        <div class="mb-8 flex items-center justify-between">
+            <h2 class="text-2xl font-bold text-slate-800 flex items-center gap-2"><i data-lucide="folder-open" class="text-indigo-600 h-6 w-6"></i>Project Files</h2>
+            <span class="text-sm text-slate-500 bg-slate-200 px-3 py-1 rounded-full font-medium">Semester 5</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <script>
+                const files = [
+                    ['FSD_Exp_1.jsx', 'FSD_Exp_1', 'JSX Source File', 'file-code-2', 'amber', false],
+                    ['FSD_Exp_1.2.jsx', 'FSD_Exp_1.2', 'JSX Source File', 'file-code-2', 'amber', false],
+                    ['FSD_Exp_2.zip', 'FSD_Exp_2', 'Compressed (.zip)', 'file-archive', 'red', true],
+                    ['FSD_Exp_2.2.zip', 'FSD_Exp_2.2', 'Compressed (.zip)', 'file-archive', 'red', true],
+                    ['FSD_Exp_3.tsx', 'FSD_Exp_3', 'TSX File (React)', 'file-json', 'blue', false],
+                    ['FSD_Exp_3.2.tsx', 'FSD_Exp_3.2', 'TSX File (React)', 'file-json', 'blue', false],
+                    ['FSD_Exp_4.tsx', 'FSD_Exp_4', 'TSX File (React)', 'file-json', 'blue', false],
+                    ['FSD_Exp_4.2.tsx', 'FSD_Exp_4.2', 'TSX File (React)', 'file-json', 'blue', false]
+                ];
+                document.write(files.map(([path, name, type, icon, color, download]) => `
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow overflow-hidden group">
+                        <div class="p-5 flex items-start gap-4">
+                            <div class="bg-${color}-100 text-${color}-600 p-3 rounded-xl group-hover:scale-110 transition-transform"><i data-lucide="${icon}" class="h-6 w-6"></i></div>
+                            <div><h3 class="font-bold text-lg text-slate-900">${name}</h3><p class="text-xs text-slate-500 font-mono mt-1">${type}</p></div>
+                        </div>
+                        <div class="bg-slate-50 px-5 py-3 border-t border-slate-100 flex justify-between items-center">
+                            <span class="text-xs text-slate-400">${path}</span>
+                            <a href="./${path}"${download ? ' download' : ''} class="text-indigo-600 hover:text-indigo-800 text-sm font-medium flex items-center gap-1 transition-colors">${download ? 'Download' : 'View Code'} <i data-lucide="${download ? 'download' : 'chevron-right'}" class="h-4 w-4"></i></a>
+                        </div>
+                    </div>
+                `).join(''));
+            </script>
+            <div class="bg-slate-100 rounded-2xl shadow-sm border border-slate-200 border-dashed overflow-hidden">
+                <div class="p-5 flex items-center gap-4 h-full"><div class="bg-slate-200 text-slate-600 p-3 rounded-xl"><i data-lucide="folder" class="h-6 w-6"></i></div><div><h3 class="font-bold text-lg text-slate-800">FullStack_II_Sem_5</h3><p class="text-xs text-slate-500 mt-1">Project Directory</p></div></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center mt-auto"><div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-2"><p class="text-sm">&copy; 2026 Prabhjot (24BAI70033). All rights reserved.</p><p class="text-xs bg-slate-800 px-3 py-1 rounded-full border border-slate-700">Full Stack Development Portfolio</p></div></footer>
+    <script>lucide.createIcons();</script>
+</body>
 </html>
